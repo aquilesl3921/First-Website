@@ -1,41 +1,80 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, height=device-height, inital-scale=1.0">
         <title>
-            Tech Stack
+            End Of Fortnite OG Countdown
         </title>
-        <meta
-            name="viewport"
-            content="width=device-width,
-            height=device-height,
-            inital-scale=1"
-            />
-            <style></style>
-            <link rel="stylesheet" href="index.css">
-            <script>
-                function myFunction(){
-                    divTemplate = document.getElementById"idk"
-                }
-            </script>
+        <link rel="stylesheet" href="index.css">
+            
     </head>
 
-    <body>
-        <div>
-        <h1 class="idk"> First Tech Stack tutorial</h1>
-        <h2> This one is a smaller heading </h2>
-        <p>
-           Basic Text
-        </p>
-        </div>
-        <div>
-            <button onclick="myFunction">
-                
-            </button>
-            <h1 class="idk">Yo</h1>
+    <body class="background_c">
+        <nav class="navbar">
+            <a href="index.html"><img src="Images/Fortnite OG Logo.png"></a>
+            <div class="navbar_toggle" id="mobile_menu">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="navigation_buttons">
+                <ul class="navbar_menu">
+                    <li class="navbar_item"><a href="index.html" class="navbar_links">Home</a></li>
+                    <li class="navbar_item"><a href="info.html" class="navbar_links">Info</a></li>
+                    <li class="navbar_item"><a href="https://fortnite.com/news/fortnite-og-drop-back-into-battle-royale-chapter-1" class="navbar_links">What's New</a></li>
+                    <li class="navbar_item"><a href="https://fortnite.com" class="navbar_links">Official Fortnite Website</a></li>
+                </ul>
+            </div>
+            </nav>
             <br>
-            <p> Hello </p>
-        </div>
-        <img src="https://www.dailydot.com/wp-content/uploads/2018/10/Fortnite.jpg" alt="fortnite" height="150" width="300"/>
-        <a href="https://google.com"> Go to google</a>
+            <h1 class="header"> <u>Time until Fortnite OG Ends:</u></h1> 
+            <br>
+            <div class="countdown">
+                <b>
+                    <span id="days">00</span>
+                    <span>Days</span>
+              
+                    <span id="hours">00</span>
+                    <span>Hours</span>
+               
+                    <span id="minutes">00</span>
+                    <span>Minutes</span>
+               
+                    <span id="seconds">00</span>
+                    <span>Seconds</span>
+                </b>
+            </div>
+
+            <div class="background_i">
+                <br>
+                <br>
+                <img src="Images/Fortnite OG Wallpaper.jpg" class="mid">
+            </div>
+            
+            <script>
+                var countdown_date = new Date("Dec 2, 2023 03:00:00").getTime();
+                var x = setInterval(function(){
+                    var now = new Date().getTime();
+                    var distance = countdown_date - now;
+
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+                    var minutes = Math.floor((distance / 1000 / 60) % 60);
+                    var seconds = Math.floor((distance / 1000) % 60);
+
+                    document.getElementById("days").innerHTML = days;
+                    document.getElementById("hours").innerHTML = hours;
+                    document.getElementById("minutes").innerHTML = minutes;
+                    document.getElementById("seconds").innerHTML = seconds;
+
+                    if(distance < 0){
+                        clearInterval(x);
+                        document.getElementById("days").innerHTML = "00";
+                    document.getElementById("hours").innerHTML = "00";
+                    document.getElementById("minutes").innerHTML = "00";
+                    document.getElementById("seconds").innerHTML = "00";
+                        
+                    }
+                },1000);
+            </script>
     </body>
 </html>
